@@ -1,0 +1,36 @@
+<div class="form-container">
+  <div class="label-container">
+    Página: {{ page }}
+  </div>
+
+  <div class="label-container">
+    Tamanho da Página: {{ pageSize }}
+  </div>
+</div>
+
+<table class="character-table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Espécie</th>
+    <th>Imagem</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let character of characters">
+    <td>{{ character.id }}</td>
+    <td>{{ character.name }}</td>
+    <td>{{ character.status }}</td>
+    <td>{{ character.species }}</td>
+    <td><img [src]="character.image" alt="Imagem do Personagem" width="50" height="50"></td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="page === 1">Anterior</button>
+  <span>Página {{ page }}</span>
+  <button (click)="nextPage()">Próxima</button>
+</div>
